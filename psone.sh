@@ -9,12 +9,11 @@ _ps1_git_branch() {
     local bg_dark_gray="\[$(tput setab 235)\]"
     local fg_blue="\[$(tput setaf 19)\]"
     local reset="\[$(tput sgr0)\]"
-    local git_symbol=''
 
     if [[ ! -z "$branch" ]]; then
-        echo -n "${fg_blue}${bg_green}${reset}${bg_green}${git_symbol}${branch}${reset}${bg_dark_gray}${fg_green}${reset}"
+        echo -n "${fg_blue}${bg_green}${reset}${bg_green} ${branch} ${reset}${bg_dark_gray}${fg_green} ${reset}"
     else
-        echo -n "${fg_blue}${reset}"
+        echo -n "${fg_blue} ${reset}"
     fi
 }
 
@@ -79,16 +78,15 @@ _ps1_left() {
     local kube_symbol=$'\u2388'
     local bg_kube_blue="\[$(tput setab 26)\]"
     local fg_kube_blue="\[$(tput setaf 26)\]"
-    local folder_symbol=$'\U0001f4C1'
     local kube_info=$(_ps1_kube)
-    local retval="${bg_gray}\T${reset}${fg_gray}${bg_purple}${reset}${bg_purple}\u@\h${fg_purple}"
+    local retval="${bg_gray} \T ${reset}${fg_gray}${bg_purple}${reset}${bg_purple} \u@\h ${fg_purple}"
 
     if [[ -n $kube_info ]]; then
-        local retval="${retval}${bg_kube_blue}${reset}${bg_kube_blue}${kube_symbol}$(_ps1_kube)${bg_blue}${fg_kube_blue}"
+        local retval="${retval}${bg_kube_blue} ${reset}${bg_kube_blue}${kube_symbol}$(_ps1_kube)${bg_blue}${fg_kube_blue}"
     fi
 
 
-    echo -n "${retval}${bg_blue}${reset}${bg_blue}${folder_symbol}$(_ps1_cwd)${reset}$(_ps1_git_branch)"
+    echo -n "${retval}${bg_blue} ${reset}${bg_blue}$(_ps1_cwd) ${reset}$(_ps1_git_branch)"
 } 
 
 _ps1_right() {
