@@ -5,7 +5,7 @@
 Run the following command and restart your terminal
 
 ```
-wget -O ~/.psone https://raw.githubusercontent.com/denheck/psone/0.1/psone.sh && echo "source ~/.psone" >> ~/.bashrc
+wget -O ~/.psone https://raw.githubusercontent.com/denheck/psone/0.2/psone.sh && echo "source ~/.psone" >> ~/.bashrc
 ```
 
 ## Uninstall
